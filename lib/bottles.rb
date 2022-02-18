@@ -1,4 +1,8 @@
 class Bottles
+  def initialize
+    @bottleNumber = BottleNumber.new(99)
+  end
+
   def song
     verses(99, 0)
   end
@@ -14,20 +18,24 @@ class Bottles
     "#{quantity(successor(number))} #{container(successor(number))} of beer on the wall.\n"
   end
 
+  def down_to
+    @bottleNumber -= 1
+  end
+
   def quantity(number)
-    BottleNumber.new(number).quantity
+    @bottleNumber.quantity
   end
 
   def container(number)
-    BottleNumber.new(number).container
+    @bottleNumber.container
   end
 
   def action(number)
-    BottleNumber.new(number).action
+    @bottleNumber.action
   end
 
   def successor(number)
-    BottleNumber.new(number).successor
+    @bottleNumber.successor
   end
 end
 
